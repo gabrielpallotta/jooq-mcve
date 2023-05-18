@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '2.7.3'
+    id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+    id 'com.adarshr.test-logger' version '3.2.0'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.springframework.boot:spring-boot-starter-jdbc'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation "io.projectreactor:reactor-test"
+
+    testImplementation 'org.jooq:jooq:3.18.4'
+    testImplementation 'com.zaxxer:HikariCP:5.0.1'
+    testImplementation 'mysql:mysql-connector-java:8.0.33'
+    testImplementation "org.testcontainers:mysql:1.18.1"
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
